@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;      /* #F8FAFC */
+    --foreground: 215 60% 8%;        /* #0F172A */
+    --card: 0 0% 100%;               /* #FFFFFF */
+    --card-foreground: 215 60% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 60% 8%;
+    --primary: 189 97% 43%;          /* #06B6D4 teal-500 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 60% 8%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%; /* #475569 */
+    --accent: 210 40% 96%;
+    --accent-foreground: 215 60% 8%;
+    --border: 214 32% 91%;           /* #E2E8F0 */
+    --input: 214 32% 91%;
+    --ring: 189 97% 43%;             /* #06B6D4 */
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  /* Hero heading accent — AI gradient */
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #7C3AED, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Main brand gradient (teal) */
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #06B6D4, #14B8A6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-6xl mx-auto px-5 sm:px-8 lg:px-10;
+  }
+}
