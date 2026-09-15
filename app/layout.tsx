@@ -9,11 +9,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LearnX – Intelligent School Management Platform",
+  title: "LearnX – School Management & Learning Management, Unified",
   description:
-    "LearnX is a modern school management system that simplifies administration, academics, communication, and finance for schools in one unified platform.",
+    "LearnX brings a school management system and a learning management system together on one intelligent platform — administration, academics, online learning, communication and finance, unified.",
   keywords: [
     "school management system",
+    "learning management system",
+    "LMS",
     "education software",
     "student information system",
     "academic management",
@@ -21,9 +23,9 @@ export const metadata: Metadata = {
     "LearnX",
   ],
   openGraph: {
-    title: "LearnX – Intelligent School Management Platform",
+    title: "LearnX – School Management & Learning Management, Unified",
     description:
-      "Simplify administration, academics, communication and finance for modern schools.",
+      "One intelligent platform for school administration and online learning.",
     type: "website",
   },
 };

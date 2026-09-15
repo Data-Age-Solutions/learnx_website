@@ -5,30 +5,30 @@ import { MapPin, Phone, Mail } from "lucide-react";
 
 const nav = [
   {
-    heading: "Product",
+    heading: "School Management",
     links: [
-      { label: "Features", href: "#features" },
+      { label: "Student Records", href: "#platform" },
+      { label: "e-Register", href: "#platform" },
       { label: "AI Timetable", href: "#ai" },
-      { label: "Integrations", href: "#integrations" },
-      { label: "Pricing", href: "#pricing" },
+      { label: "Billing & Finance", href: "#platform" },
+    ],
+  },
+  {
+    heading: "Learning Management",
+    links: [
+      { label: "Course Builder", href: "#platform" },
+      { label: "Assignments & Grading", href: "#platform" },
+      { label: "Virtual Classrooms", href: "#platform" },
+      { label: "Online Exams", href: "#platform" },
     ],
   },
   {
     heading: "Company",
     links: [
+      { label: "Pricing", href: "#pricing" },
+      { label: "Integrations", href: "#integrations" },
       { label: "About", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Careers", href: "#" },
       { label: "Contact", href: "#" },
-    ],
-  },
-  {
-    heading: "Support",
-    links: [
-      { label: "Documentation", href: "#" },
-      { label: "Help Centre", href: "#" },
-      { label: "Status", href: "#" },
-      { label: "Privacy Policy", href: "#" },
     ],
   },
 ];
@@ -50,7 +50,7 @@ export default function Footer() {
               />
             </a>
             <p className="text-sm leading-relaxed text-slate-500 mb-5">
-              The intelligent school management platform for modern education.
+              School management and learning management, unified on one intelligent platform.
             </p>
             <ul className="space-y-2.5 text-sm text-slate-500">
               <li className="flex items-start gap-2.5">

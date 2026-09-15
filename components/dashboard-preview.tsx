@@ -13,7 +13,7 @@ const stats = [
 
 export default function DashboardPreview() {
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="section-padding bg-white border-t border-slate-100">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: text */}
@@ -21,12 +21,12 @@ export default function DashboardPreview() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="text-sm font-semibold uppercase tracking-widest text-teal-500 mb-3">
+            <p className="text-sm font-semibold uppercase tracking-widest text-teal-600 mb-3">
               Live Dashboard
             </p>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-5">
               A command centre for your entire school
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed mb-8">
@@ -39,7 +39,7 @@ export default function DashboardPreview() {
               {stats.map(({ icon: Icon, label, value, color }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm"
+                  className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200"
                 >
                   <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${color}`}>
                     <Icon size={16} />
@@ -54,7 +54,7 @@ export default function DashboardPreview() {
 
             <a
               href="#pricing"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-teal-500 hover:text-teal-600 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-teal-600 transition-colors"
             >
               See full feature set <ArrowRight size={14} />
             </a>
@@ -65,10 +65,10 @@ export default function DashboardPreview() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60">
+            <div className="relative rounded-2xl overflow-hidden border border-slate-200">
               <Image
                 src="/images/bg1.jpg"
                 alt="LearnX analytics dashboard"
@@ -78,7 +78,7 @@ export default function DashboardPreview() {
               />
             </div>
             {/* Floating badge */}
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl border border-slate-100 px-5 py-3">
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl border border-slate-200 px-5 py-3">
               <p className="text-xs text-slate-500 mb-0.5">Student progress</p>
               <p className="text-xl font-bold text-slate-900">
                 ↑ 14%{" "}

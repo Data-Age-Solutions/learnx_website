@@ -7,10 +7,10 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { label: "Features", href: "#features" },
-  { label: "AI", href: "#ai" },
+  { label: "Platform", href: "#platform" },
+  { label: "School Management", href: "#platform" },
+  { label: "Learning Management", href: "#platform" },
   { label: "Pricing", href: "#pricing" },
-  { label: "About", href: "#" },
 ];
 
 export default function Navbar() {
@@ -31,7 +31,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm"
+          ? "bg-white/90 backdrop-blur-md border-b border-slate-200/80"
           : "bg-transparent"
       )}
     >
@@ -40,11 +40,11 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#" className="flex items-center">
             <Image
-              src={scrolled ? "/images/learnx-logo.png" : "/images/learnx-logo-white.png"}
+              src="/images/learnx-logo.png"
               alt="LearnX"
               width={240}
               height={64}
-              className="h-16 w-auto object-contain"
+              className="h-14 w-auto object-contain"
               priority
             />
           </a>
@@ -55,12 +55,7 @@ export default function Navbar() {
               <a
                 key={l.label}
                 href={l.href}
-                className={cn(
-                  "text-sm font-medium transition-colors",
-                  scrolled
-                    ? "text-slate-500 hover:text-slate-900"
-                    : "text-white/70 hover:text-white"
-                )}
+                className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
               >
                 {l.label}
               </a>
@@ -71,10 +66,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <a
               href="#"
-              className={cn(
-                "text-sm font-medium transition-colors",
-                scrolled ? "text-slate-500 hover:text-slate-900" : "text-white/70 hover:text-white"
-              )}
+              className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
             >
               Sign in
             </a>
@@ -82,19 +74,16 @@ export default function Navbar() {
               href="#pricing"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-4 py-2 text-sm font-semibold text-white bg-teal-500 rounded-lg hover:bg-teal-600 transition-colors shadow-sm"
+              className="px-4 py-2 text-sm font-semibold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors"
             >
-              Request Demo
+              Book a Demo
             </motion.a>
           </div>
 
           {/* Mobile toggle */}
           <button
             onClick={() => setOpen(!open)}
-            className={cn(
-              "md:hidden p-2 rounded-lg transition-colors",
-              scrolled ? "text-slate-500 hover:bg-slate-100" : "text-white/80 hover:bg-white/10"
-            )}
+            className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -122,11 +111,11 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="pt-2 space-y-2">
-                <a href="#" className="block w-full px-3 py-2.5 text-sm font-medium text-center text-slate-600 border border-slate-200 rounded-lg">
+                <a href="#" className="block w-full px-3 py-2.5 text-sm font-medium text-center text-slate-600 border border-slate-200 rounded-full">
                   Sign in
                 </a>
-                <a href="#pricing" className="block w-full px-3 py-2.5 text-sm font-semibold text-center text-white bg-teal-500 rounded-lg">
-                  Request Demo
+                <a href="#pricing" className="block w-full px-3 py-2.5 text-sm font-semibold text-center text-white bg-slate-900 rounded-full">
+                  Book a Demo
                 </a>
               </div>
             </div>

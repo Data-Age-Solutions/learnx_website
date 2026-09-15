@@ -21,7 +21,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-white border-t border-slate-100">
       <div className="container-custom">
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 text-center">
@@ -31,9 +31,9 @@ export default function Benefits() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+              <p className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">
                 {s.value}
               </p>
               <p className="mt-2 text-sm text-slate-500">{s.label}</p>
@@ -47,10 +47,10 @@ export default function Benefits() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-100">
+            <div className="rounded-2xl overflow-hidden border border-slate-200">
               <Image
                 src="/images/bg3.jpg"
                 alt="Modern school environment"
@@ -65,12 +65,12 @@ export default function Benefits() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="text-sm font-semibold uppercase tracking-widest text-teal-500 mb-3">
+            <p className="text-sm font-semibold uppercase tracking-widest text-teal-600 mb-3">
               Why LearnX
             </p>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-8">
               Built for the way schools actually work
             </h2>
             <ul className="space-y-4">

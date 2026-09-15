@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "LearnX transformed how we operate. The AI timetabling alone saved our academic coordinator three full days every term.",
+      "LearnX SMS transformed how we operate. The AI timetabling alone saved our academic coordinator three full days every term.",
     name: "Patricia Ndlovu",
     title: "Principal",
     school: "Westgate Academy, Harare",
@@ -14,27 +14,27 @@ const testimonials = [
   },
   {
     quote:
-      "The system is rock solid. Integration with our existing tools was seamless and the support team is exceptional.",
+      "Our teachers moved coursework and assignments onto LearnX LMS in a week. Grading turnaround is now same-day instead of same-week.",
     name: "James Okafor",
     title: "IT Manager",
     school: "Lagos International School",
     initials: "JO",
-    color: "bg-teal-500",
+    color: "bg-[#7C3AED]",
   },
   {
     quote:
-      "Finance, HR and academics all in one place. Our admin team finally has time to focus on the students.",
+      "Finance, HR, academics and now our virtual classrooms — all in one place. Our admin team finally has time to focus on the students.",
     name: "Dr. Clara Moyo",
     title: "School Administrator",
     school: "Sunshine High School, Lusaka",
     initials: "CM",
-    color: "bg-violet-500",
+    color: "bg-slate-700",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="section-padding bg-slate-50/60 border-t border-slate-100">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,10 +43,10 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <p className="text-sm font-semibold uppercase tracking-widest text-teal-500 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-teal-600 mb-3">
             Testimonials
           </p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             Trusted by school leaders
           </h2>
         </motion.div>
@@ -58,8 +58,8 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-2xl border border-slate-100 p-8 shadow-sm flex flex-col"
+              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col"
             >
               {/* Stars */}
               <div className="flex gap-0.5 mb-5">

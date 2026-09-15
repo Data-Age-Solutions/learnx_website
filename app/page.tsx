@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
+import ProductSwitcher from "@/components/product-switcher";
 import Features from "@/components/features";
 import AIHighlight from "@/components/ai-highlight";
 import DashboardPreview from "@/components/dashboard-preview";
@@ -14,11 +15,12 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className="relative overflow-x-hidden bg-[#F8FAFC]">
+    <main className="relative overflow-x-hidden bg-[#FAFAFC]">
       <Navbar />
       <Hero />
-      <Features />
+      <ProductSwitcher />
       <AIHighlight />
+      <Features />
       <DashboardPreview />
       <Integrations />
       <Benefits />
