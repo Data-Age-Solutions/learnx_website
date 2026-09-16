@@ -77,7 +77,7 @@ export default function AIHighlight() {
 
         {/* Steps on the left, one picture frame on the right whose caption
             follows the step you are reading. */}
-        <div className="mt-12 lg:mt-16 grid lg:grid-cols-[minmax(0,460px)_1fr] gap-8 lg:gap-12 items-start lg:items-stretch">
+        <div className="mt-12 lg:mt-16 grid lg:grid-cols-[minmax(0,460px)_1fr] gap-8 lg:gap-12 items-start">
           <div className="space-y-3">
             {steps.map((step, i) => {
               const isActive = i === active;
@@ -133,11 +133,11 @@ export default function AIHighlight() {
             })}
           </div>
 
-          <div className="relative rounded-[22px] overflow-hidden ring-1 ring-slate-200/80 shadow-elevated lg:h-full">
-            <div className="relative aspect-[3/2] lg:aspect-auto lg:h-full">
+          <div className="relative rounded-[22px] overflow-hidden ring-1 ring-slate-200/80 shadow-elevated">
+            <div className="relative aspect-[998/448]">
               <Image
-                src="/images/bg2.jpg"
-                alt="Two school administrators working side by side on laptops"
+                src="/images/hero-dashboard.jpg"
+                alt="A student at a laptop beside the LearnX administration dashboard"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 640px, 100vw"

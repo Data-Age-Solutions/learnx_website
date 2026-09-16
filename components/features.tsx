@@ -27,8 +27,8 @@ const panels = [
     description:
       "Admissions, daily attendance and the timetable that holds the week together — kept current without anyone re-typing the same record twice.",
     modules: ["Student Records", "e-Register", "AI Timetable"],
-    image: "/images/learnx-bg.jpg",
-    imageAlt: "A classroom set up and ready for the school day",
+    image: "/images/hero-key-visual.jpg",
+    imageAlt: "The LearnX administration dashboard shown on a desktop screen",
     tone: "light" as const,
   },
   {
@@ -37,8 +37,8 @@ const panels = [
     description:
       "Pay your people, invoice your families and reach every parent from the same place, with the numbers reconciled as you go.",
     modules: ["Employee Management", "Billing & Finance", "Messaging"],
-    image: "/images/hero-key-visual.jpg",
-    imageAlt: "LearnX reporting shown across a desktop screen and a tablet",
+    image: "/images/bg2.jpg",
+    imageAlt: "Two school administrators working side by side on laptops",
     tone: "tint" as const,
   },
   {
