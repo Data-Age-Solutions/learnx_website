@@ -15,7 +15,7 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className="relative overflow-x-hidden bg-[#FAFAFC]">
+    <main className="relative overflow-x-clip bg-[#FAFAFC]">
       <Navbar />
       <Hero />
       <ProductSwitcher />

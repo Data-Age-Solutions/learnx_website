@@ -86,3 +86,186 @@
     transform: translateX(-50%);
   }
 }
+
+@layer utilities {
+  /* Layered elevation. A single large shadow reads flat; stacking a tight
+     contact shadow with a wide ambient one is what makes a card feel lifted. */
+  .shadow-elevated {
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 8px 24px -8px rgba(15, 23, 42, 0.10),
+      0 32px 64px -24px rgba(15, 23, 42, 0.18);
+  }
+
+  .shadow-soft {
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 10px 28px -12px rgba(15, 23, 42, 0.16);
+  }
+
+  /* Optical refinement for large display type */
+  .display-tight {
+    letter-spacing: -0.035em;
+    font-feature-settings: "ss01" 1, "cv01" 1;
+  }
+
+  /* Fades the marquee edges instead of letting logos hard-clip */
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 10%,
+      #000 90%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 10%,
+      #000 90%,
+      transparent
+    );
+  }
+}
+
+/* Honour the user's motion preference across decorative animation */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-float-slow,
+  .animate-pulse-slow {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer utilities {
+  /* Fine engineering grid behind the hero. Masked to a soft ellipse so it
+     suggests structure near the headline and dissolves before the edges —
+     an unmasked grid reads as a wireframe, not as depth. */
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 55% at 50% 22%,
+      #000 0%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 55% at 50% 22%,
+      #000 0%,
+      transparent 100%
+    );
+  }
+
+  /* Slow, uneven drift for the gradient blobs. Two offset durations keep the
+     ambient wash from ever repeating a recognisable loop. */
+  .aurora-a {
+    animation: aurora-a 22s ease-in-out infinite;
+  }
+
+  .aurora-b {
+    animation: aurora-b 28s ease-in-out infinite;
+  }
+
+  /* Light sweeping across the primary button on hover — the highlight is a
+     child element so the button keeps its own solid background. */
+  .sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      115deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.22) 45%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .sheen:hover::after {
+    transform: translateX(120%);
+  }
+
+  /* Frosted overlay panels that sit on top of the product frame */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  }
+
+  /* Dark counterpart, for panels sitting on the navy hero or over a bright
+     photo — a light panel on a bright photo loses its edge entirely. */
+  .glass-panel-dark {
+    background: rgba(11, 31, 58, 0.72);
+    backdrop-filter: blur(16px) saturate(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  }
+
+  /* Grid for the navy hero. Same geometry as .hero-grid, light-on-dark. */
+  .hero-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 75% 60% at 50% 20%,
+      #000 0%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 75% 60% at 50% 20%,
+      #000 0%,
+      transparent 100%
+    );
+  }
+
+  /* Headline accent for the dark hero. The light-mode #7C3AED sits too close
+     to the navy ground to read, so the dark pair starts a full step lighter. */
+  .text-gradient-brand-dark {
+    background: linear-gradient(135deg, #A78BFA 0%, #67E8F9 60%, #22D3EE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes aurora-a {
+  0%, 100% { transform: translate(-50%, 0) scale(1); }
+  50%      { transform: translate(-50%, 3%) scale(1.06); }
+}
+
+@keyframes aurora-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-4%, 5%) scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-a,
+  .aurora-b {
+    animation: none !important;
+  }
+
+  .sheen::after {
+    display: none;
+  }
+}
+
+/* Scroll-reveal safety net. Entrance animations are rendered server-side at
+   opacity 0; a visitor who prefers reduced motion never gets the animation
+   that would clear it, so the content would stay invisible. This overrides the
+   inline style for exactly those visitors. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
