@@ -146,10 +146,6 @@ export default function ProductSwitcher() {
               />
             </motion.div>
           </AnimatePresence>
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(11,31,58,0.55)_0%,transparent_35%,transparent_75%,rgba(11,31,58,0.85)_100%)]"
-          />
         </div>
 
         <div className="px-5 sm:px-8 lg:pl-14 lg:pr-[max(2.5rem,calc((100vw-72rem)/2+2.5rem))] py-12 lg:py-20 flex flex-col justify-center">
