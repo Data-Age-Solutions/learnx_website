@@ -125,8 +125,8 @@ export default function ProductSwitcher() {
 
       {/* Full-bleed band: photography running off the left edge, the system you
           picked written out on the right. */}
-      <div className="lg:grid lg:grid-cols-2 lg:items-stretch">
-        <div className="relative min-h-[300px] sm:min-h-[380px] lg:min-h-[620px]">
+      <div className="lg:grid lg:grid-cols-2 lg:items-center">
+        <div className="relative w-full aspect-[3/2]">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.key}

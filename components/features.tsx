@@ -27,8 +27,8 @@ const panels = [
     description:
       "Admissions, daily attendance and the timetable that holds the week together — kept current without anyone re-typing the same record twice.",
     modules: ["Student Records", "e-Register", "AI Timetable"],
-    image: "/images/hero-dashboard.jpg",
-    imageAlt: "A student at a laptop beside the LearnX administration dashboard",
+    image: "/images/hero-key-visual.jpg",
+    imageAlt: "The LearnX administration dashboard shown on a desktop screen",
     tone: "light" as const,
   },
   {
@@ -47,8 +47,8 @@ const panels = [
     description:
       "Build the curriculum, run the lesson and mark the work without leaving the platform — in the room or online.",
     modules: ["Course Builder", "Assignments & Grading", "Virtual Classrooms"],
-    image: "/images/bg3.jpg",
-    imageAlt: "A lecture room arranged and ready for a session",
+    image: "/images/bg1.jpg",
+    imageAlt: "Students working on laptops at their desks during a lesson",
     tone: "light" as const,
   },
   {
@@ -57,8 +57,8 @@ const panels = [
     description:
       "Examine, mark and measure, so progress is visible to teachers and parents long before the end of term.",
     modules: ["Online Exams", "Progress Analytics", "Academic Reports"],
-    image: "/images/hero-key-visual.jpg",
-    imageAlt: "LearnX reporting and analytics shown across a desktop and a tablet",
+    image: "/images/bg3.jpg",
+    imageAlt: "A lecture room arranged for an examination sitting",
     tone: "tint" as const,
   },
 ];
@@ -138,7 +138,7 @@ export default function Features() {
                   </div>
                 </div>
 
-                <div className="relative min-h-[240px] sm:min-h-[300px] lg:min-h-full">
+                <div className="relative aspect-[3/2] lg:aspect-auto lg:min-h-full">
                   <Image
                     src={panel.image}
                     alt={panel.imageAlt}

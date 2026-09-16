@@ -134,10 +134,10 @@ export default function AIHighlight() {
           </div>
 
           <div className="relative rounded-[22px] overflow-hidden ring-1 ring-slate-200/80 shadow-elevated">
-            <div className="relative aspect-[4/3] lg:aspect-[16/11]">
+            <div className="relative aspect-[998/448]">
               <Image
-                src="/images/bg1.jpg"
-                alt="Students working on laptops at their desks during a lesson"
+                src="/images/hero-dashboard.jpg"
+                alt="A student at a laptop beside the LearnX administration dashboard"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 640px, 100vw"
