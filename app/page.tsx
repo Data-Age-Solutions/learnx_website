@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollProgress from "@/components/scroll-progress";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import ProductSwitcher from "@/components/product-switcher";
@@ -16,6 +17,7 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <main className="relative overflow-x-clip bg-[#FAFAFC]">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <ProductSwitcher />

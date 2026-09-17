@@ -10,13 +10,9 @@ import {
 import Image from "next/image";
 import {
   ArrowRight,
-  Check,
   Layers,
   LineChart,
-  MessageSquare,
   ShieldCheck,
-  Smartphone,
-  LifeBuoy,
 } from "lucide-react";
 
 const stats = [
@@ -26,13 +22,27 @@ const stats = [
   { value: "500+", label: "Schools onboarded" },
 ];
 
+/**
+ * Three standing claims rather than six one-liners. Each row carries a title
+ * and a supporting line, so the list reads as three deliberate statements
+ * instead of a feature checklist — the shape Kose uses for its partner paths.
+ */
 const benefits = [
-  { icon: Layers, text: "One unified system — no more juggling spreadsheets" },
-  { icon: LineChart, text: "Real-time insights across every department" },
-  { icon: MessageSquare, text: "Seamless parent and student communication" },
-  { icon: ShieldCheck, text: "Enterprise-grade security with cloud backup" },
-  { icon: Smartphone, text: "Mobile-ready for staff, parents and students" },
-  { icon: LifeBuoy, text: "Dedicated onboarding and support team" },
+  {
+    icon: Layers,
+    title: "One system, every department",
+    detail: "Admissions, classrooms and accounts in a single place — no more juggling spreadsheets.",
+  },
+  {
+    icon: LineChart,
+    title: "Everyone in the loop",
+    detail: "Live figures for staff and instant messaging for parents, on any device.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Safe hands from day one",
+    detail: "Enterprise-grade security, cloud backup and a dedicated onboarding team.",
+  },
 ];
 
 /** Small downward triangle that opens every section eyebrow. */
@@ -117,32 +127,37 @@ export default function Benefits() {
       </div>
 
       <div className="relative z-10 container-custom">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Picture card: photograph on top, a dark shelf beneath it holding
-              one standing claim — the shape Kose uses for its trust panel. */}
-          <motion.div
+        {/* Kose splits .85/1.15 across a 1272px canvas, which buys its picture
+            ~490px. Ours is a 1072px canvas, so the same ratio would starve the
+            plate to ~406px — shorter than the copy beside it. Recover the width
+            from the gutter instead: a tighter gap and a squarer split land the
+            image at Kose's size without pushing this section wider than the
+            other nine. */}
+        <div className="grid lg:grid-cols-[0.94fr_1.06fr] gap-12 lg:gap-[clamp(40px,5vw,72px)] items-center">
+          {/* Portrait plate with the claim riding inside it as a pill, rather
+              than on a shelf below. One object instead of two — the section
+              breathes, and it is the shape Kose uses for its billboard. */}
+          <motion.figure
             data-reveal
             initial={reduceMotion ? false : { opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="relative rounded-[26px] bg-white/[0.04] ring-1 ring-white/10 p-3 shadow-elevated"
+            className="relative w-full max-w-[560px] lg:mx-0 mx-auto aspect-[4/5] rounded-[22px] overflow-hidden ring-1 ring-white/10 shadow-elevated"
           >
-            <div className="relative aspect-[3/2] rounded-[18px] overflow-hidden ring-1 ring-white/10">
-              <Image
-                src="/images/bg3.jpg"
-                alt="A lecture room arranged and ready for a session"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 560px, 100vw"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(11,31,58,0.55)_100%)]"
-              />
-            </div>
+            <Image
+              src="/images/bg3.jpg"
+              alt="A lecture room arranged and ready for a session"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 480px, (min-width: 640px) 560px, 100vw"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(11,31,58,0.62)_100%)]"
+            />
 
-            <motion.div
+            <motion.figcaption
               data-reveal
               initial={reduceMotion ? false : { opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -152,21 +167,17 @@ export default function Benefits() {
                 delay: 0.25,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mt-3 flex items-center gap-3.5 rounded-2xl bg-navy-800/70 ring-1 ring-white/10 px-4 py-3.5 backdrop-blur-sm"
+              className="absolute left-4 bottom-4 inline-flex items-center gap-2.5 rounded-full bg-navy-900/80 ring-1 ring-white/15 px-3.5 py-2.5 backdrop-blur-md"
             >
-              <span className="flex-shrink-0 w-9 h-9 rounded-xl bg-teal-500 flex items-center justify-center shadow-[0_8px_20px_-8px_rgba(6,182,212,0.9)]">
-                <Check size={17} className="text-navy-900" strokeWidth={3} />
+              <span
+                aria-hidden
+                className="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_0_3px_rgba(45,212,191,0.25)]"
+              />
+              <span className="text-[12px] font-bold tracking-tight text-white">
+                Both systems, one login
               </span>
-              <span>
-                <span className="block text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">
-                  On day one
-                </span>
-                <span className="block text-[14.5px] font-semibold tracking-tight text-white">
-                  Both systems, one login
-                </span>
-              </span>
-            </motion.div>
-          </motion.div>
+            </motion.figcaption>
+          </motion.figure>
 
           {/* Copy side */}
           <div>
@@ -177,14 +188,14 @@ export default function Benefits() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="inline-flex items-center gap-2.5 text-[12px] font-bold uppercase tracking-[0.14em] text-teal-400 mb-6">
+              <span className="inline-flex items-center gap-2.5 text-[12px] font-extrabold uppercase tracking-[0.16em] text-teal-400 mb-[18px]">
                 <EyebrowMark />
                 Why LearnX
               </span>
-              <h2 className="display-tight text-[2.2rem] sm:text-[3rem] lg:text-[3.4rem] font-bold text-white leading-[1.05] text-balance">
+              <h2 className="text-[2.5rem] sm:text-[3.25rem] lg:text-[4.25rem] font-extrabold text-white leading-[0.98] tracking-[-0.055em] text-balance">
                 Built for the way schools actually work.
               </h2>
-              <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-lg text-pretty">
+              <p className="mt-5 text-[1.0625rem] sm:text-[1.25rem] text-slate-400 leading-[1.6] max-w-[560px] text-pretty">
                 One system behind the office, the classroom and every parent who
                 needs to hear from you.
               </p>
@@ -195,23 +206,29 @@ export default function Benefits() {
               initial={reduceMotion ? false : "hidden"}
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
-              className="mt-9 border-t border-white/10"
+              className="mt-[34px] border-t border-white/10"
             >
-              {benefits.map(({ icon: Icon, text }) => (
+              {benefits.map(({ icon: Icon, title, detail }) => (
                 <motion.li
                   data-reveal
-                  key={text}
+                  key={title}
                   variants={reduceMotion ? undefined : row}
-                  className="group flex items-center gap-4 py-4 border-b border-white/10 transition-colors duration-300 hover:border-white/20"
+                  className="group grid grid-cols-[48px_1fr] items-center gap-3.5 min-h-[92px] py-4 pl-0 border-b border-white/10 transition-[padding,border-color] duration-300 hover:pl-2.5 hover:border-white/20"
                 >
-                  <span className="flex-shrink-0 w-9 h-9 rounded-xl bg-white/[0.06] ring-1 ring-white/10 flex items-center justify-center transition-all duration-300 group-hover:bg-teal-500/15 group-hover:ring-teal-400/40">
+                  <span className="w-12 h-12 rounded-[14px] bg-white/[0.06] ring-1 ring-white/10 grid place-items-center transition-all duration-300 group-hover:bg-teal-500/15 group-hover:ring-teal-400/40">
                     <Icon
-                      size={16}
+                      size={23}
+                      strokeWidth={1.9}
                       className="text-teal-400 transition-transform duration-300 group-hover:scale-110"
                     />
                   </span>
-                  <span className="text-[14.5px] text-slate-300 leading-relaxed tracking-tight transition-colors duration-300 group-hover:text-white">
-                    {text}
+                  <span>
+                    <span className="block text-[16px] font-semibold tracking-tight text-white">
+                      {title}
+                    </span>
+                    <span className="block mt-1 text-[13px] text-slate-400 leading-relaxed">
+                      {detail}
+                    </span>
                   </span>
                 </motion.li>
               ))}
@@ -242,14 +259,14 @@ export default function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-14 lg:mt-20 pt-10 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-y-9 lg:divide-x lg:divide-white/10"
+          className="mt-12 lg:mt-14 pt-7 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6 sm:divide-x sm:divide-white/10"
         >
           {stats.map((s) => (
-            <div key={s.label} className="lg:px-8 lg:first:pl-0 lg:last:pr-0">
-              <p className="display-tight text-[2.5rem] sm:text-[3rem] font-bold text-white leading-none">
+            <div key={s.label} className="sm:px-6 sm:first:pl-0 sm:last:pr-0">
+              <p className="display-tight text-[1.75rem] sm:text-[2rem] font-bold text-white leading-none">
                 <Figure value={s.value} />
               </p>
-              <p className="mt-3 text-[13px] text-slate-400 leading-relaxed">
+              <p className="mt-1.5 text-[12px] text-slate-400 leading-snug">
                 {s.label}
               </p>
             </div>
