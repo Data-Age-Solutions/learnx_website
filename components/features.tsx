@@ -57,8 +57,9 @@ const panels = [
     description:
       "Examine, mark and measure, so progress is visible to teachers and parents long before the end of term.",
     modules: ["Online Exams", "Progress Analytics", "Academic Reports"],
-    image: "/images/bg3.jpg",
-    imageAlt: "A lecture room arranged for an examination sitting",
+    image: "/images/teacher-marking-work.jpg",
+    imageAlt:
+      "A teacher marking written work at a desk in front of a chalkboard covered in equations",
     tone: "tint" as const,
   },
 ];

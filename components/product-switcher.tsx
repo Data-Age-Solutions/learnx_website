@@ -27,9 +27,9 @@ const products = [
     heading: "Run the whole school from one place",
     description:
       "Admissions, attendance, finance and staff — LearnX SMS keeps every administrative thread of your school connected and up to date.",
-    image: "/images/learnx-bg2.jpg",
+    image: "/images/school-administration.jpg",
     imageAlt:
-      "Secondary school students walking together between lessons",
+      "Two school administrators reviewing a LearnX School Administration dashboard showing student, teacher and class totals",
     features: [
       { icon: Users, title: "Student Records", description: "Admissions, profiles and academic history in one file." },
       { icon: ClipboardCheck, title: "e-Register", description: "Digital attendance with real-time visibility." },
@@ -46,9 +46,9 @@ const products = [
     heading: "Teaching and learning, brought online",
     description:
       "Courses, assignments and live classes in one experience — LearnX LMS gives teachers and students a modern place to work together.",
-    image: "/images/learnx-bg.jpg",
+    image: "/images/teacher-lesson-planning.jpg",
     imageAlt:
-      "A classroom set up and ready for a lesson to begin",
+      "A teacher preparing lesson material on a laptop in front of a chalkboard",
     features: [
       { icon: BookOpen, title: "Course Builder", description: "Structure curricula, lessons and modules with ease." },
       { icon: PencilLine, title: "Assignments & Grading", description: "Submit, grade and return work in one flow." },
@@ -141,7 +141,11 @@ export default function ProductSwitcher() {
                 src={current.image}
                 alt={current.imageAlt}
                 fill
-                className="object-cover"
+                /* The admin shot is a true 3:2 and fills the slot exactly, so
+                   the offset does nothing to it. The teaching shot is square
+                   and has to lose a third of its height here — biasing the
+                   crop upwards keeps the teacher's head out of the cut. */
+                className="object-cover object-[50%_25%]"
                 sizes="(min-width: 1024px) 50vw, 100vw"
               />
             </motion.div>

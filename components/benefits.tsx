@@ -146,10 +146,12 @@ export default function Benefits() {
             className="relative w-full max-w-[560px] lg:mx-0 mx-auto aspect-[4/5] rounded-[22px] overflow-hidden ring-1 ring-white/10 shadow-elevated"
           >
             <Image
-              src="/images/bg3.jpg"
-              alt="A lecture room arranged and ready for a session"
+              src="/images/teacher-helping-student.jpg"
+              alt="A teacher helping a student with written work during a lesson"
               fill
-              className="object-cover"
+              /* Source is 2:3 in a 4:5 frame, so it loses height. Biasing the
+                 crop upwards keeps both faces well clear of the cut. */
+              className="object-cover object-[50%_35%]"
               sizes="(min-width: 1024px) 480px, (min-width: 640px) 560px, 100vw"
             />
             <div

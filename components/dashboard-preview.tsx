@@ -102,8 +102,8 @@ export default function DashboardPreview() {
         <div className="h-[26rem] overflow-hidden md:h-full md:-mr-[max(0px,calc((100vw-1400px)/2))]">
           <div className="relative h-full w-full overflow-hidden bg-slate-100">
             <Image
-              src="/images/bg1.jpg"
-              alt="LearnX analytics dashboard"
+              src="/images/admin-payroll-billing.jpg"
+              alt="A school administrator working across staff payroll, family billing and parent communication screens"
               fill
               className="object-cover object-center"
               sizes="(min-width: 768px) 50vw, 100vw"
