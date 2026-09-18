@@ -18,6 +18,7 @@ export default function Integrations() {
     <section id="integrations" className="section-padding bg-slate-50/60 border-t border-slate-100">
       <div className="container-custom">
         <motion.div
+          data-reveal
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

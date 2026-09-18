@@ -23,16 +23,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
+  // The hero is light now, so the bar is always the light treatment. Scroll
+  // only decides whether it carries a bottom rule and a shadow — floating over
+  // a white hero, a hard border from the first pixel reads as a seam.
+  const lifted = scrolled || open;
+
   return (
     <motion.header
+      data-reveal
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-        scrolled
+        lifted
           ? "bg-white/90 backdrop-blur-md border-b border-slate-200/80"
-          : "bg-transparent"
+          : "bg-white/80 backdrop-blur-md border-b border-transparent"
       )}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
@@ -55,7 +61,7 @@ export default function Navbar() {
               <a
                 key={l.label}
                 href={l.href}
-                className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+                className="text-sm font-medium text-slate-500 transition-colors hover:text-navy-900"
               >
                 {l.label}
               </a>
@@ -66,7 +72,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <a
               href="#"
-              className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+              className="text-sm font-medium text-slate-500 transition-colors hover:text-navy-900"
             >
               Sign in
             </a>
@@ -74,7 +80,7 @@ export default function Navbar() {
               href="#pricing"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-4 py-2 text-sm font-semibold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors"
+              className="px-4 py-2 text-sm font-semibold rounded-full text-white bg-navy-900 transition-colors hover:bg-navy-800"
             >
               Book a Demo
             </motion.a>
@@ -83,7 +89,9 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="md:hidden p-2 rounded-lg text-slate-600 transition-colors hover:bg-slate-100"
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -94,6 +102,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            data-reveal
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -114,7 +123,7 @@ export default function Navbar() {
                 <a href="#" className="block w-full px-3 py-2.5 text-sm font-medium text-center text-slate-600 border border-slate-200 rounded-full">
                   Sign in
                 </a>
-                <a href="#pricing" className="block w-full px-3 py-2.5 text-sm font-semibold text-center text-white bg-slate-900 rounded-full">
+                <a href="#pricing" className="block w-full px-3 py-2.5 text-sm font-semibold text-center text-white bg-navy-900 rounded-full">
                   Book a Demo
                 </a>
               </div>
